@@ -1,64 +1,319 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>כרטיס ביקור דיגיטלי</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>כרטיס ביקור דיגיטלי</title>
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f2f2f2;
-  text-align: center;
-}
-header {
-  background: #111;
-  color: #fff;
-  padding: 20px;
-}
-.section {
-  padding: 20px;
-}
-.whatsapp {
-  display: block;
-  margin: 15px auto;
-  padding: 15px;
-  width: 80%;
-  max-width: 300px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-size: 18px;
-}
-img {
-  width: 90%;
-  max-width: 300px;
-  margin: 10px 0;
-  border-radius: 10px;
-}
-</style>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.14);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.75);
+      --accent: #25D366;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, Arial, sans-serif;
+      background:
+        radial-gradient(900px 420px at 80% 10%, rgba(37,211,102,0.25), transparent 60%),
+        radial-gradient(700px 360px at 20% 0%, rgba(88,101,242,0.25), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .hero{
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 820px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .top{
+      padding: 22px;
+      display:flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .logo{
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 800;
+      font-size: 22px;
+      flex: 0 0 auto;
+    }
+
+    h1{
+      margin:0;
+      font-size: 26px;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle{
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .badges{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .badge{
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+    }
+
+    .actions{
+      padding: 0 22px 22px;
+      display:grid;
+      gap: 10px;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      text-decoration:none;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      transition: transform .08s ease, background .2s ease;
+      user-select: none;
+    }
+
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.14); }
+
+    .btn.whatsapp{
+      background: rgba(37,211,102,0.16);
+      border-color: rgba(37,211,102,0.35);
+    }
+    .btn.whatsapp strong{ color: #fff; }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 520px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    .section{
+      padding: 18px 22px 22px;
+    }
+
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 820px){
+      .gallery{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px){
+      .gallery{ grid-template-columns: 1fr; }
+    }
+
+    .shot{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .shot img{
+      width:100%;
+      height: 180px;
+      object-fit: cover;
+      display:block;
+    }
+
+    .form{
+      display:grid;
+      gap: 10px;
+    }
+    .input, .textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.18);
+      color:#fff;
+      outline: none;
+      font-size: 15px;
+    }
+    .textarea{ min-height: 110px; resize: vertical; }
+
+    .hint{
+      margin-top: 10px;
+      color: rgba(255,255,255,0.65);
+      font-size: 13px;
+      text-align: center;
+      padding: 14px 0 6px;
+    }
+
+    .footer{
+      margin-top: 14px;
+      text-align:center;
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      padding-bottom: 18px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<header>
-  <h1>שם העסק כאן</h1>
-  <p>תיאור קצר של השירות</p>
-</header>
+    <!-- כרטיס ראשי -->
+    <div class="hero">
 
-<div class="section">
-  <a class="whatsapp" href="https://wa.me/972501234567">
-    שלח הודעה בוואטסאפ
-  </a>
-</div>
+      <div class="card">
+        <div class="top">
+          <div class="logo">א</div>
+          <div>
+            <h1>אבי אלומיניום</h1>
+            <div class="subtitle">גדרות • שערים • סורגים • התקנות בכל הארץ</div>
+            <div class="badges">
+              <div class="badge">✅ עבודה נקייה</div>
+              <div class="badge">⏱️ זמינות מהירה</div>
+              <div class="badge">⭐ אחריות</div>
+            </div>
+          </div>
+        </div>
 
-<div class="section">
-  <h2>גלריית עבודות</h2>
-  <img src="https://via.placeholder.com/300">
-  <img src="https://via.placeholder.com/300">
-</div>
+        <div class="actions">
+          <!-- החליפי מספר -->
+          <a class="btn whatsapp" href="https://wa.me/972501234567?text=%D7%94%D7%99%D7%99%20%D7%90%D7%91%D7%99%2C%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%3F" target="_blank" rel="noopener">
+            💬 <strong>שלחי הודעה בוואטסאפ</strong>
+          </a>
 
+          <div class="grid2">
+            <a class="btn" href="tel:+972501234567">📞 התקשרי</a>
+            <a class="btn" href="#quote">🧾 בקשת הצעת מחיר</a>
+          </div>
+
+          <!-- אופציונלי -->
+          <div class="grid2">
+            <a class="btn" href="https://instagram.com/" target="_blank" rel="noopener">📷 אינסטגרם</a>
+            <a class="btn" href="https://maps.google.com/?q=Tel+Aviv" target="_blank" rel="noopener">📍 מיקום</a>
+          </div>
+        </div>
+
+        <div class="hint">טיפ: אפשר להדפיס QR ללינק הזה ולשים על רכב/כרטיס.</div>
+      </div>
+
+      <!-- גלריה -->
+      <div class="card">
+        <div class="section">
+          <h2>גלריית עבודות</h2>
+          <div class="gallery">
+            <!-- החליפי תמונות: אפשר לשים קישורים לתמונות, או להעלות קבצים (נסביר עוד רגע) -->
+            <div class="shot"><img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1200&q=80" alt="עבודה 1"></div>
+            <div class="shot"><img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80" alt="עבודה 2"></div>
+            <div class="shot"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="עבודה 3"></div>
+            <div class="shot"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="עבודה 4"></div>
+            <div class="shot"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80" alt="עבודה 5"></div>
+            <div class="shot"><img src="https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&w=1200&q=80" alt="עבודה 6"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- טופס -->
+    <div class="card" id="quote" style="margin-top:18px;">
+      <div class="section">
+        <h2>בקשת הצעת מחיר</h2>
+
+        <!-- אופציה 1: הכי קל - הטופס שולח לוואטסאפ (לא צריך מייל/שירות) -->
+        <form class="form" onsubmit="return sendToWhatsApp(event)">
+          <input class="input" id="name" type="text" placeholder="שם מלא" required>
+          <input class="input" id="phone" type="tel" placeholder="טלפון" required>
+          <input class="input" id="city" type="text" placeholder="עיר">
+          <textarea class="textarea" id="details" placeholder="מה צריך? (מידות/סוג עבודה/מיקום)"></textarea>
+          <button class="btn whatsapp" type="submit">💬 שלחי בוואטסאפ</button>
+        </form>
+
+        <div class="footer">© כרטיס דיגיטלי</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function sendToWhatsApp(e){
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      // החליפי מספר הוואטסאפ של העסק:
+      const waNumber = "972501234567";
+
+      const msg =
+`היי, אשמח להצעת מחיר 🙂
+שם: ${name}
+טלפון: ${phone}
+עיר: ${city || '-'}
+פרטים: ${details || '-'}`;
+
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+      return false;
+    }
+  </script>
 </body>
 </html>
