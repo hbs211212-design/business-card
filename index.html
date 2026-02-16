@@ -1,264 +1,803 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>דנה כהן - כרטיס ביקור דיגיטלי</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>אביב רוזן | עו״ד ונוטריון</title>
+  <meta name="theme-color" content="#26384a" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      /* צבעים מאוד קרובים למה ששלחת */
+      --navy:#26384a;
+      --navy2:#1f2d3c;
+      --navy3:#1a2633;
+      --gold:#b8945a;        /* זהב מט */
+      --gold2:#d9c19a;
+      --white:#ffffff;
+      --ink:#0e141b;
+      --muted:#cfd7e2;
+      --muted2:#b7c3cf;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 980px;
+      --phone: 520px;
     }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.6;
-      direction: rtl;
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      color: var(--white);
+      background: linear-gradient(180deg, var(--navy2) 0%, var(--navy) 45%, var(--navy3) 100%);
     }
-    .container {
-      max-width: 1100px;
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; }
+
+    .wrap{
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 20px;
     }
-    header {
-      text-align: center;
-      padding: 40px 0 20px;
-    }
-    h1 {
-      font-size: 2.8rem;
-      color: #f59e0b;
-      margin-bottom: 10px;
-    }
-    .slider {
+
+    /* ===== HERO ===== */
+    .hero{
       position: relative;
+      background:
+        linear-gradient(180deg, rgba(34,49,64,.65), rgba(34,49,64,.85)),
+        url("https://images.unsplash.com/photo-1528747045269-390fe33c19f2?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      padding: 34px 18px 0;
       overflow: hidden;
-      margin: 30px 0;
     }
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease;
+
+    .heroInner{
+      max-width: var(--phone);
+      margin: 0 auto;
+      text-align:center;
+      padding-bottom: 14px;
+      position: relative;
+      z-index: 2;
     }
-    .card {
-      flex: 0 0 33.333%;
-      background: linear-gradient(135deg, #92400e, #b45309);
+
+    .brandTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .brandText{
+      text-align:right;
+    }
+
+    .brandNameTop{
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      margin: 0;
+      line-height: 1.1;
+      text-shadow: 0 8px 22px rgba(0,0,0,.35);
+    }
+
+    .brandSubTop{
+      margin-top: 6px;
+      font-size: 18px;
+      color: rgba(255,255,255,.88);
+      line-height: 1.2;
+      text-shadow: 0 8px 22px rgba(0,0,0,.25);
+      border-bottom: 2px solid rgba(255,255,255,.65);
+      display:inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* מונוגרמה גדולה כמו בדוגמה */
+    .monogram{
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      font-size: 118px;
+      line-height: 0.8;
+      color: rgba(255,255,255,.92);
+      text-shadow: 0 12px 30px rgba(0,0,0,.35);
+      user-select:none;
+      transform: translateY(-6px);
+    }
+
+    /* גל לבן בתחתית ההירו */
+    .wave{
+      position:absolute;
+      left:0; right:0; bottom:-1px;
+      height: 120px;
+      background: var(--white);
+      border-top-left-radius: 100% 70%;
+      border-top-right-radius: 100% 70%;
+      transform: scaleX(1.2);
+      z-index: 1;
+      box-shadow: 0 -14px 40px rgba(0,0,0,.18);
+    }
+
+    /* ===== PROFILE SECTION ON WHITE ===== */
+    .cardTop{
+      background: var(--white);
+      color: var(--ink);
+      padding: 0 18px 18px;
+    }
+    .cardTopInner{
+      max-width: var(--phone);
+      margin: 0 auto;
+      text-align:center;
+      position: relative;
+    }
+
+    .avatar{
+      width: 148px;
+      height: 148px;
+      border-radius: 999px;
+      overflow:hidden;
+      margin: -74px auto 10px; /* עולה על ה-wave */
+      box-shadow: var(--shadow);
+      border: 8px solid var(--white);
+      background: #e9eef5;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .nameMid{
+      margin: 6px 0 0;
+      font-size: 30px;
+      font-weight: 950;
+      color: var(--ink);
+    }
+    .titleMid{
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: rgba(27,42,58,.72);
+      font-weight: 700;
+    }
+
+    /* ===== ICONS ROW ===== */
+    .iconRow{
+      margin-top: 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 0 2px;
+    }
+
+    .iconItem{
+      width: 64px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 8px;
+      cursor:pointer;
+      outline: none;
+    }
+
+    .iconCircle{
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: var(--gold);
+      box-shadow: 0 12px 22px rgba(0,0,0,.12);
+    }
+    .iconCircle svg{ width:22px; height:22px; fill: #fff; }
+    .iconLabel{
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(23,34,48,.75);
+    }
+    .iconItem:focus-visible{ outline: 3px solid rgba(184,148,90,.55); outline-offset: 6px; border-radius: 12px; }
+
+    .saveBtn{
+      margin: 16px auto 0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 0;
+      background: var(--gold);
       color: #fff;
-      border-radius: 16px;
-      padding: 30px 20px;
-      margin: 0 15px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      min-height: 220px;
+      font-weight: 950;
+      cursor:pointer;
+      box-shadow: 0 14px 28px rgba(0,0,0,.14);
     }
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: #fef3c7;
+    .saveBtn svg{ width:18px; height:18px; fill:#fff; }
+
+    /* ===== SECTIONS ===== */
+    .sectionTitle{
+      margin: 18px auto 10px;
+      max-width: var(--phone);
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      text-align:center;
     }
-    .card p {
-      font-size: 1.05rem;
+
+    .whiteSection{
+      background: var(--white);
+      color: var(--ink);
+      padding: 16px 18px 26px;
     }
-    .arrow {
-      position: absolute;
+    .whiteInner{
+      max-width: var(--phone);
+      margin: 0 auto;
+    }
+    .p{
+      margin: 0;
+      color: rgba(15,20,27,.78);
+      line-height: 1.85;
+      font-size: 15px;
+    }
+
+    /* תחומי התמחות – גריד עם אייקונים כמו בדוגמה */
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 18px;
+    }
+    @media (max-width:520px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+    .feat{
+      text-align:center;
+      padding: 10px 6px;
+    }
+    .feat svg{
+      width: 40px; height: 40px;
+      fill: none;
+      stroke: rgba(31,45,60,.6);
+      stroke-width: 1.6;
+      margin-bottom: 8px;
+    }
+    .feat h3{
+      margin: 0;
+      font-size: 15px;
+      font-weight: 950;
+      color: rgba(15,20,27,.86);
+    }
+    .feat p{
+      margin-top: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(15,20,27,.70);
+    }
+
+    /* ===== DARK SECTION (ממליצים + טופס) ===== */
+    .darkSection{
+      background: linear-gradient(180deg, var(--navy2), var(--navy3));
+      padding: 18px 18px 10px;
+    }
+    .darkInner{
+      max-width: var(--phone);
+      margin: 0 auto;
+    }
+
+    /* קרוסלה פשוטה כמו בדוגמה */
+    .carousel{
+      margin-top: 12px;
+      position: relative;
+      padding: 12px 0 8px;
+    }
+    .slides{
+      display:flex;
+      gap: 12px;
+      overflow:hidden;
+      scroll-behavior:smooth;
+    }
+    .slide{
+      min-width: 80%;
+      background: var(--gold);
+      color:#fff;
+      border-radius: 6px;
+      padding: 14px 14px 16px;
+      box-shadow: 0 16px 34px rgba(0,0,0,.22);
+    }
+    .slide small{
+      opacity:.9;
+      display:block;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .slide p{
+      margin:0;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .carBtn{
+      position:absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255,255,255,0.15);
-      color: white;
-      border: none;
-      font-size: 2.5rem;
-      padding: 10px 18px;
-      cursor: pointer;
-      border-radius: 50%;
-      user-select: none;
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(0,0,0,.18);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      user-select:none;
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-    section {
-      padding: 50px 0;
+    .carBtn svg{ width:20px; height:20px; fill:#fff; }
+    .carBtn.left{ left: 0; }
+    .carBtn.right{ right: 0; }
+
+    /* טופס כמו בדוגמה */
+    .formTitle{
+      margin: 22px 0 10px;
+      text-align:center;
+      font-size: 34px;
+      font-weight: 950;
     }
-    h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      color: #fbbf24;
-      margin-bottom: 40px;
+    .form{
+      margin-top: 10px;
+      display:grid;
+      gap: 10px;
     }
-    form {
-      max-width: 600px;
+    .row2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width:520px){ .row2{ grid-template-columns:1fr; } }
+
+    input, textarea{
+      width:100%;
+      padding: 13px 12px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.96);
+      color: #111;
+      font-size: 15px;
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus{
+      border-color: rgba(184,148,90,.85);
+      box-shadow: 0 0 0 3px rgba(184,148,90,.25);
+    }
+
+    .consent{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.85);
+      margin-top: 2px;
+    }
+    .consent a{ color: var(--gold2); text-decoration: underline; }
+    .send{
+      margin-top: 6px;
+      width: 100%;
+      padding: 14px 14px;
+      background: var(--gold);
+      border: 0;
+      border-radius: 2px;
+      font-weight: 950;
+      color:#fff;
+      cursor:pointer;
+    }
+
+    /* שיתוף אייקונים */
+    .shareTitle{
+      margin: 18px 0 10px;
+      text-align:center;
+      font-size: 30px;
+      font-weight: 950;
+    }
+    .shareRow{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-bottom: 4px;
+    }
+    .shareCircle{
+      width: 44px; height: 44px;
+      border-radius:999px;
+      background: var(--gold);
+      display:grid;
+      place-items:center;
+    }
+    .shareCircle svg{ width:18px; height:18px; fill:#fff; }
+
+    /* חזרה למעלה */
+    .toTop{
+      display:flex;
+      justify-content:center;
+      margin: 18px 0 8px;
+    }
+    .toTop a{
+      width: 46px; height: 46px;
+      border-radius:999px;
+      border: 2px solid rgba(184,148,90,.6);
+      display:grid;
+      place-items:center;
+      background: rgba(0,0,0,.12);
+    }
+    .toTop svg{ width:18px; height:18px; fill:#fff; }
+
+    .footer{
+      text-align:center;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      padding: 10px 18px 22px;
+    }
+
+    /* וואטסאפ/טלפון דביקים בנייד */
+    .sticky{
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      max-width: var(--phone);
       margin: 0 auto;
-      background: #1e293b;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      z-index: 20;
     }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #cbd5e1;
+    .sticky a{
+      background: rgba(31,45,60,.86);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      padding: 12px 10px;
+      border-radius: 12px;
+      text-align:center;
+      font-weight: 950;
+      color:#fff;
     }
-    input, textarea {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 20px;
-      border: 1px solid #475569;
-      border-radius: 8px;
-      background: #0f172a;
-      color: white;
-      font-size: 1.05rem;
+    .sticky a.gold{
+      background: rgba(184,148,90,.88);
+      border-color: rgba(184,148,90,.65);
     }
-    button {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(90deg, #d97706, #fbbf24);
-      color: #0f172a;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    button:hover {
-      background: linear-gradient(90deg, #fbbf24, #d97706);
-      transform: translateY(-2px);
-    }
-    .social {
-      text-align: center;
-      margin: 50px 0;
-    }
-    .social a {
-      color: #94a3b8;
-      font-size: 2.2rem;
-      margin: 0 18px;
-      transition: color 0.3s;
-    }
-    .social a:hover {
-      color: #fbbf24;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background: #020617;
-      font-size: 0.95rem;
-      color: #64748b;
-    }
-    .dots {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background: #475569;
-      border-radius: 50%;
-      margin: 0 6px;
-      cursor: pointer;
-    }
-    .dot.active {
-      background: #fbbf24;
-    }
-    @media (max-width: 768px) {
-      .card { flex: 0 0 80%; margin: 0 auto 20px; }
-      .slides { flex-wrap: wrap; justify-content: center; }
-      .arrow { font-size: 2rem; padding: 8px 14px; }
+    @media (min-width: 900px){
+      .sticky{ display:none; }
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
 
-  <div class="container">
-
-    <header>
-      <h1>דנה כהן</h1>
-      <p style="font-size:1.3rem; color:#94a3b8;">ייעוץ עסקי • ליווי יזמים • פיתוח אסטרטגי</p>
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="heroInner">
+        <div class="brandTop">
+          <div class="brandText">
+            <h1 class="brandNameTop" id="heroName">אביב רוזן</h1>
+            <div class="brandSubTop" id="heroSub">עו״ד ונוטריון</div>
+          </div>
+          <div class="monogram" id="heroMono">AR</div>
+        </div>
+      </div>
+      <div class="wave" aria-hidden="true"></div>
     </header>
 
-    <section class="slider">
-      <button class="arrow prev" onclick="moveSlide(-1)">‹</button>
-      <div class="slides" id="slides">
-        <div class="card">
-          <h3>שירות 1</h3>
-          <p>ליווי אישי ליזמים ומנהלים, בניית תוכנית עסקית מנצחת, גיוס הון וצמיחה מהירה.</p>
+    <!-- PROFILE + ICONS (WHITE) -->
+    <section class="cardTop">
+      <div class="cardTopInner">
+        <div class="avatar">
+          <!-- תמונה ייצוגית (אפשר להחליף לתמונה אמיתית) -->
+          <img id="profileImg" alt="תמונה ייצוגית של עורך דין" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80">
         </div>
-        <div class="card">
-          <h3>שירות 2</h3>
-          <p>ייעוץ פיננסי אסטרטגי, ניהול תזרים מזומנים, אופטימיזציה של הוצאות והגדלת רווחיות.</p>
+
+        <h2 class="nameMid" id="nameMid">אביב רוזן</h2>
+        <p class="titleMid" id="titleMid">עו״ד ונוטריון • ביטוח לאומי • חובות והוצאה לפועל</p>
+
+        <div class="iconRow" aria-label="קיצורי דרך">
+          <a class="iconItem" href="#contact" aria-label="צור קשר">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M6 6h12v2H6zm0 4h12v2H6zm0 4h8v2H6z"/></svg>
+            </div>
+            <div class="iconLabel">צור קשר</div>
+          </a>
+
+          <a class="iconItem" href="#about" aria-label="אודות">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div class="iconLabel">אודות</div>
+          </a>
+
+          <a class="iconItem" href="#areas" aria-label="התמחויות">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M10 4h4v2h6v4h-2V8h-4v2h-4V8H6v2H4V6h6V4zm-4 8h12v8H6v-8zm2 2v4h8v-4H8z"/></svg>
+            </div>
+            <div class="iconLabel">התמחויות</div>
+          </a>
+
+          <a class="iconItem" id="facebookBtn" href="#" target="_blank" rel="noopener" aria-label="פייסבוק">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3H13.5V9c0-.9.3-1.5 1.6-1.5h1.7V4.8c-.3 0-1.4-.1-2.7-.1-2.6 0-4.4 1.6-4.4 4.6v1.7H7v3h2.7v8h3.8z"/></svg>
+            </div>
+            <div class="iconLabel">פייסבוק</div>
+          </a>
+
+          <a class="iconItem" href="#recs" aria-label="ממליצים">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.7 0 3.2 1 3.9 2.4C11.3 5 12.8 4 14.5 4 17 4 19 6 19 8.5c0 3.78-3.4 6.86-8.55 11.18z"/></svg>
+            </div>
+            <div class="iconLabel">ממליצים</div>
+          </a>
+
+          <a class="iconItem" id="mapBtn" href="#" target="_blank" rel="noopener" aria-label="ניווט">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1114.5 9 2.5 2.5 0 0112 11.5z"/></svg>
+            </div>
+            <div class="iconLabel">ניווט</div>
+          </a>
+
+          <a class="iconItem" id="callBtn" href="#" aria-label="טלפון">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.6 3.9 5.1 6.5 6.5l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.7 0 1.2.5 1.2 1.2V21c0 .7-.5 1.2-1.2 1.2C10.1 22.2 1.8 13.9 1.8 3.6 1.8 2.9 2.3 2.4 3 2.4H6.8c.7 0 1.2.5 1.2 1.2 0 1.4.3 2.8.8 4.1.1.4 0 .9-.2 1.2l-2 1.9z"/></svg>
+            </div>
+            <div class="iconLabel">טלפון</div>
+          </a>
+
+          <a class="iconItem" id="waBtn" href="#" target="_blank" rel="noopener" aria-label="וואטסאפ">
+            <div class="iconCircle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2zm5.7 14.3c-.2.6-1.1 1.1-1.6 1.2-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.2-5-4.4-.2-.2-1.2-1.6-1.2-3s.7-2.1.9-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5.2.6.8 2.1.9 2.3.1.2.1.4 0 .6-.1.2-.2.4-.3.5-.2.2-.3.3-.4.5-.1.2-.2.4 0 .7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.4 1.4 2.8 1.6.3.1.6.1.8-.1.2-.2.9-1.1 1.1-1.4.2-.3.4-.3.7-.2.3.1 2.1 1 2.5 1.2.4.2.6.3.7.5.1.2.1.7-.1 1.3z"/></svg>
+            </div>
+            <div class="iconLabel">וואטסאפ</div>
+          </a>
         </div>
-        <div class="card">
-          <h3>שירות 3</h3>
-          <p>הכנה למכירה / מיזוג, הערכת שווי חברה, ליווי משפטי-עסקי עד לסגירת העסקה.</p>
-        </div>
-      </div>
-      <button class="arrow next" onclick="moveSlide(1)">›</button>
-      <div class="dots">
-        <span class="dot active" onclick="currentSlide(0)"></span>
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
+
+        <button class="saveBtn" id="saveBtn" type="button" aria-label="שמור אותי באנשי הקשר">
+          <svg viewBox="0 0 24 24"><path d="M15 3H5a2 2 0 0 0-2 2v14l3-2 3 2 3-2 3 2V5a2 2 0 0 0-2-2zm4 4h2v14l-3-2-3 2V7z"/></svg>
+          שמור אותי באנשי הקשר
+        </button>
       </div>
     </section>
 
-    <section>
-      <h2>צרו קשר</h2>
-      <form action="#" method="post">
-        <label for="name">שם מלא</label>
-        <input type="text" id="name" required>
-
-        <label for="phone">טלפון</label>
-        <input type="tel" id="phone" value="050443981" required>
-
-        <label for="email">מייל</label>
-        <input type="email" id="email" required>
-
-        <label for="message">הודעה</label>
-        <textarea id="message" rows="5" required></textarea>
-
-        <button type="submit">שלח</button>
-      </form>
+    <!-- ABOUT + AREAS (WHITE) -->
+    <section class="whiteSection" id="about">
+      <div class="whiteInner">
+        <div class="sectionTitle">אודות</div>
+        <p class="p">
+          משרד <b>אביב רוזן – עו״ד ונוטריון</b> מעניק ללקוחותיו ליווי משפטי מדויק, שקוף ומקצועי,
+          עם דגש על אסטרטגיה, ירידה לפרטים ושירות בגובה העיניים.
+          המשרד מטפל בתיקים מול <b>ביטוח לאומי</b> (נכות/אובדן כושר עבודה/ועדות רפואיות ועררים),
+          בהסדרת <b>חובות והוצאה לפועל</b> (איחוד תיקים/צו תשלומים/הסדרים מול נושים),
+          וכן מספק <b>שירותי נוטריון</b> (אימות חתימה, אישורי העתק, תרגומים נוטריוניים וייפוי כוח).
+          <br><br>
+          הגישה שלנו פשוטה: להבין את הסיפור שלך, לבנות מסלול פעולה ברור, ולהוביל לתוצאה בצורה אחראית ומכבדת.
+        </p>
+      </div>
     </section>
 
-    <div class="social">
-      <a href="#">📧</a>
-      <a href="#">🟢</a> <!-- וואטסאפ -->
-      <a href="#">🔗</a>
-      <a href="#">𝕏</a>
-      <a href="#">𝐟</a>
+    <section class="whiteSection" id="areas" style="padding-top:0;">
+      <div class="whiteInner">
+        <div class="sectionTitle">תחומי התמחות</div>
+
+        <div class="grid">
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M12 3l3 6 6 .9-4.5 4.4 1 6.2L12 17.8 6.5 20.5l1-6.2L3 9.9 9 9z"/></svg>
+            <h3>ביטוח לאומי</h3>
+            <p>תביעות, ועדות רפואיות, עררים וייצוג עד לקבלת החלטה.</p>
+          </div>
+
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M7 7h10v14H7z"/><path d="M9 3h6v4H9z"/></svg>
+            <h3>חובות והוצאה לפועל</h3>
+            <p>הסדרים, ביטול עיקולים, איחוד תיקים, צו תשלומים ומו״מ.</p>
+          </div>
+
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M6 19h12M8 5h8l2 4H6z"/><path d="M9 11h6"/></svg>
+            <h3>חדלות פירעון</h3>
+            <p>בדיקת התאמה, הכנה להגשה וליווי לאורך ההליך.</p>
+          </div>
+
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 7h10"/><path d="M7 17h10"/></svg>
+            <h3>נוטריון</h3>
+            <p>אימות חתימה, תרגומים, אישורים וייפויי כוח נוטריוניים.</p>
+          </div>
+
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 17l6-10 6 10"/></svg>
+            <h3>הסכמים</h3>
+            <p>בדיקה וניסוח הסכמים, הגנה על אינטרסים ודיוק משפטי.</p>
+          </div>
+
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M8 3h8v6H8z"/><path d="M6 9h12v12H6z"/></svg>
+            <h3>ייעוץ וליווי</h3>
+            <p>פגישת ייעוץ ממוקדת + תוכנית פעולה מסודרת להמשך.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOMMENDATIONS + CONTACT (DARK) -->
+    <section class="darkSection" id="recs">
+      <div class="darkInner">
+        <div class="sectionTitle" style="color:#fff;">ממליצים</div>
+
+        <div class="carousel" aria-label="קרוסלת המלצות">
+          <button class="carBtn left" type="button" aria-label="הקודם" onclick="scrollSlides(-1)">
+            <svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+          </button>
+
+          <div class="slides" id="slides">
+            <div class="slide">
+              <small>יואב • תל אביב</small>
+              <p>שירות מקצועי ושקוף. קיבלתי הסבר ברור על כל שלב והרגשתי שיש מי שמנהל את התיק באמת.</p>
+            </div>
+            <div class="slide">
+              <small>עדן • ראשון לציון</small>
+              <p>ליווי מעולה מול ביטוח לאומי, הכנה יסודית והכוונה פרקטית. תודה על זמינות וסבלנות.</p>
+            </div>
+            <div class="slide">
+              <small>אפרת • חיפה</small>
+              <p>סידרו לי הסדר חוב בצורה חכמה, ירדו הלחצים והכל קיבל סדר. ממליצה בחום.</p>
+            </div>
+          </div>
+
+          <button class="carBtn right" type="button" aria-label="הבא" onclick="scrollSlides(1)">
+            <svg viewBox="0 0 24 24"><path d="m8.6 16.6 1.4 1.4 6-6-6-6-1.4 1.4L13.2 12z"/></svg>
+          </button>
+        </div>
+
+        <div class="formTitle" id="contact">צור קשר</div>
+
+        <form class="form" onsubmit="return sendToWhatsApp(event)">
+          <div class="row2">
+            <input id="fullName" required placeholder="שם מלא" aria-label="שם מלא">
+            <input id="phone" required placeholder="טלפון" aria-label="טלפון">
+          </div>
+          <input id="email" placeholder="מייל" aria-label="מייל">
+          <textarea id="msg" placeholder="הודעה" aria-label="הודעה"></textarea>
+
+          <label class="consent">
+            <input id="consent" type="checkbox" required>
+            אני מאשר/ת יצירת קשר (הודעת פרטיות)
+          </label>
+
+          <button class="send" type="submit">שלח</button>
+        </form>
+
+        <div class="shareTitle">שיתוף כרטיס הביקור</div>
+        <div class="shareRow" aria-label="שיתוף">
+          <a class="shareCircle" id="shareMail" href="#" aria-label="מייל">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a class="shareCircle" id="shareWA" href="#" target="_blank" rel="noopener" aria-label="וואטסאפ">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2z"/></svg>
+          </a>
+          <a class="shareCircle" id="shareLinked" href="#" target="_blank" rel="noopener" aria-label="לינקדאין">
+            <svg viewBox="0 0 24 24"><path d="M4 3a2 2 0 100 4 2 2 0 000-4zm0 6H2v13h4V9zm7 0H7v13h4v-6.8c0-1.8 2-2 2 0V22h4v-7.5c0-5.3-6-5.1-6-2.5V9z"/></svg>
+          </a>
+          <a class="shareCircle" id="shareX" href="#" target="_blank" rel="noopener" aria-label="איקס">
+            <svg viewBox="0 0 24 24"><path d="M18.5 2h3l-6.6 7.6L22 22h-6.2l-4.8-6.2L5.6 22H2l7.1-8.2L2.4 2H8.8l4.3 5.6L18.5 2zm-1.1 18h1.7L7.8 3.9H6L17.4 20z"/></svg>
+          </a>
+          <a class="shareCircle" id="shareFB" href="#" target="_blank" rel="noopener" aria-label="פייסבוק">
+            <svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3H13.5V9c0-.9.3-1.5 1.6-1.5h1.7V4.8c-.3 0-1.4-.1-2.7-.1-2.6 0-4.4 1.6-4.4 4.6v1.7H7v3h2.7v8h3.8z"/></svg>
+          </a>
+        </div>
+
+        <div class="toTop">
+          <a href="#top" aria-label="חזרה למעלה">
+            <svg viewBox="0 0 24 24"><path d="m12 8 6 6-1.4 1.4L12 10.8 7.4 15.4 6 14z"/></svg>
+          </a>
+        </div>
+
+        <div class="footer">כרטיס ביקור דיגיטלי • עיצוב בסגנון יוקרתי • מותאם מובייל</div>
+      </div>
+    </section>
+
+    <!-- Sticky buttons (mobile) -->
+    <div class="sticky" aria-label="כפתורים מהירים">
+      <a class="gold" id="stickyWA" href="#" target="_blank" rel="noopener">וואטסאפ</a>
+      <a id="stickyCall" href="#">טלפון</a>
     </div>
-
-    <footer>
-      <p>© כל הזכויות שמורות | דנה כהן | נבנה ע"י סטודיו דוגמה</p>
-      <p style="margin-top:10px;"><a href="#" style="color:#94a3b8;">חזרה לראש העמוד</a></p>
-    </footer>
 
   </div>
 
   <script>
-    let slideIndex = 0;
-    const slides = document.getElementById("slides");
-    const dots = document.querySelectorAll(".dot");
-
-    function showSlides(n) {
-      if (n >= 3) slideIndex = 0;
-      if (n < 0) slideIndex = 2;
-      slides.style.transform = `translateX(-${slideIndex * 33.333}%)`;
-      dots.forEach(d => d.classList.remove("active"));
-      dots[slideIndex].classList.add("active");
+    // ========= CAROUSEL =========
+    function scrollSlides(dir){
+      const el = document.getElementById('slides');
+      const amount = el.clientWidth * 0.85 * dir;
+      el.scrollBy({ left: -amount, behavior: 'smooth' }); // RTL
     }
 
-    function moveSlide(n) {
-      slideIndex += n;
-      showSlides(slideIndex);
-    }
+    // ========= CONFIG (עריכה במקום אחד) =========
+    const CONFIG = {
+      fullName: "אביב רוזן",
+      subTitle: "עו״ד ונוטריון",
+      monogram: "AR",
+      phoneDisplay: "050-443-9810", // אם המספר שלך שונה - תשני פה
+      whatsappNumber: "972504439810", // format wa.me (בלי 0, עם 972)
+      email: "office@avivrozen-law.co.il",
+      facebook: "https://facebook.com/",
+      maps: "https://maps.google.com/?q=תל+אביב",
+      linkedin: "https://linkedin.com/",
+      x: "https://x.com/",
+      instagram: "https://instagram.com/"
+    };
 
-    function currentSlide(n) {
-      slideIndex = n;
-      showSlides(slideIndex);
-    }
+    // Apply texts
+    document.getElementById('heroName').textContent = CONFIG.fullName;
+    document.getElementById('heroSub').textContent = CONFIG.subTitle;
+    document.getElementById('heroMono').textContent = CONFIG.monogram;
+    document.getElementById('nameMid').textContent = CONFIG.fullName;
 
-    // אוטומטי כל 6 שניות (אופציונלי)
-    // setInterval(() => moveSlide(1), 6000);
+    // Links
+    const tel = "tel:" + CONFIG.phoneDisplay.replace(/\s/g,'');
+    const mail = "mailto:" + CONFIG.email;
+    const wa = (text)=> `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    const waQuick = wa(`היי ${CONFIG.fullName}, אשמח לייעוץ / קביעת פגישה.`);
+
+    document.getElementById('callBtn').href = tel;
+    document.getElementById('waBtn').href = waQuick;
+    document.getElementById('stickyCall').href = tel;
+    document.getElementById('stickyWA').href = waQuick;
+    document.getElementById('facebookBtn').href = CONFIG.facebook;
+    document.getElementById('mapBtn').href = CONFIG.maps;
+
+    // Share
+    document.getElementById('shareMail').href = mail;
+    document.getElementById('shareWA').href = wa(`מצרף/ת כרטיס ביקור: ${location.href}`);
+    document.getElementById('shareLinked').href = CONFIG.linkedin;
+    document.getElementById('shareX').href = CONFIG.x;
+    document.getElementById('shareFB').href = CONFIG.facebook;
+
+    // ========= Save contact (vCard) =========
+    function buildVCard(){
+      return `BEGIN:VCARD
+VERSION:3.0
+FN:${CONFIG.fullName}
+TITLE:${CONFIG.subTitle}
+TEL;TYPE=CELL:${CONFIG.phoneDisplay}
+EMAIL;TYPE=INTERNET:${CONFIG.email}
+END:VCARD`;
+    }
+    document.getElementById('saveBtn').addEventListener('click', ()=>{
+      const vcf = buildVCard();
+      const blob = new Blob([vcf], {type:"text/vcard;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${CONFIG.fullName.replace(/\s+/g,'-')}.vcf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    // ========= Form -> WhatsApp =========
+    function sendToWhatsApp(e){
+      e.preventDefault();
+      const name = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+
+      const text =
+`פנייה חדשה:
+שם: ${name}
+טלפון: ${phone}
+מייל: ${email || '-'}
+הודעה: ${msg || '-'}`;
+
+      window.open(wa(text), "_blank");
+      return false;
+    }
   </script>
-
 </body>
 </html>
