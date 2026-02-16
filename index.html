@@ -8,12 +8,12 @@
 
   <style>
     :root{
-      /* צבעים כמו בדוגמא ששלחת */
+      /* צבעים כמו בדוגמה */
       --navy:#26384a;
       --navy2:#1f2d3c;
       --navy3:#1a2633;
 
-      --gold:#b8945a;     /* זהב מט */
+      --gold:#b8945a;     /* זהב-חרדל */
       --gold2:#d9c19a;
 
       --white:#ffffff;
@@ -36,18 +36,19 @@
       color:#fff;
     }
     a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
     .wrap{ max-width: var(--max); margin:0 auto; }
 
-    /* ===== HERO ===== */
+    /* ===== HERO (כמו בתמונה: כחול + בניינים בשקיפות נמוכה) ===== */
     .hero{
       position: relative;
       background:
-        linear-gradient(180deg, rgba(34,49,64,.62), rgba(34,49,64,.86)),
-        url("https://images.unsplash.com/photo-1528747045269-390fe33c19f2?auto=format&fit=crop&w=1800&q=80");
+        linear-gradient(180deg, rgba(47,64,86,.78), rgba(47,64,86,.90)),
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80");
       background-size: cover;
       background-position: center;
-      padding: 34px 18px 0;
+      padding: 36px 18px 0;
       overflow:hidden;
     }
 
@@ -55,51 +56,24 @@
       max-width: var(--phone);
       margin: 0 auto;
       position: relative;
-      z-index: 3; /* מעל הגל */
+      z-index: 3;
       text-align:center;
-      padding-bottom: 18px;
+      padding-bottom: 20px;
     }
 
-    .brandTop{
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      gap: 16px;
-      margin-top: 6px;
-    }
-
-    .brandText{ text-align:right; }
-
-    .brandNameTop{
-      margin:0;
-      font-size: 34px;
-      font-weight: 900;
-      line-height: 1.1;
-      text-shadow: 0 8px 22px rgba(0,0,0,.35);
-    }
-
-    .brandSubTop{
-      margin-top: 6px;
-      font-size: 18px;
-      color: rgba(255,255,255,.9);
-      display:inline-block;
-      padding-bottom: 6px;
-      border-bottom: 2px solid rgba(255,255,255,.65);
-      text-shadow: 0 8px 22px rgba(0,0,0,.25);
-    }
-
+    /* מונוגרמה גדולה כמו בדוגמה (אפשר להשאיר/למחוק) */
     .monogram{
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 600;
       font-size: 118px;
       line-height: .8;
-      color: rgba(255,255,255,.92);
-      text-shadow: 0 12px 30px rgba(0,0,0,.35);
+      color: rgba(255,255,255,.18);
       user-select:none;
-      transform: translateY(-6px);
+      margin: 0;
+      transform: translateY(6px);
     }
 
-    /* הגל הלבן – הורדתי אותו קצת כדי לא לכסות שום דבר */
+    /* גל לבן כמו בדוגמה */
     .wave{
       position:absolute;
       left:-10%;
@@ -113,13 +87,13 @@
       box-shadow: 0 -14px 40px rgba(0,0,0,.18);
     }
 
-    /* ===== WHITE TOP SECTION ===== */
+    /* ===== TOP CARD ===== */
     .cardTop{
       background: var(--white);
       color: var(--ink);
       padding: 0 18px 18px;
       position: relative;
-      z-index: 2; /* מעל הגל */
+      z-index: 2;
     }
 
     .cardTopInner{
@@ -129,47 +103,47 @@
       position: relative;
     }
 
-    /* תיקון התמונה: לא מוסתרת + ברורה */
+    /* תמונה עגולה נקייה, לא מוסתרת */
     .avatar{
-      width: 156px;
-      height: 156px;
+      width: 170px;
+      height: 170px;
       border-radius: 999px;
       overflow:hidden;
-      margin: -78px auto 10px; /* יורד בדיוק מעל הגל */
+      margin: -85px auto 10px;
       border: 10px solid var(--white);
       box-shadow: var(--shadow);
       background: #e9eef5;
       position: relative;
-      z-index: 4; /* הכי מעל */
+      z-index: 4;
     }
     .avatar img{
       width:100%;
       height:100%;
-      object-fit: cover;   /* תמונה מלאה בעיגול */
-      object-position: center 20%; /* קצת למעלה כדי שהפנים לא ייחתכו */
-      display:block;
+      object-fit: cover;
+      object-position: center 15%;
     }
 
+    /* רק שם + סלוגן (בלי תוספות) */
     .nameMid{
       margin: 6px 0 0;
-      font-size: 30px;
+      font-size: 40px;
       font-weight: 950;
       color: var(--ink);
     }
-    .titleMid{
-      margin: 6px 0 0;
-      font-size: 16px;
-      color: rgba(27,42,58,.72);
-      font-weight: 700;
+    .sloganMid{
+      margin: 10px 0 0;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--gold);
     }
 
-    /* ===== ICONS ROW (8 כמו בדוגמא) ===== */
+    /* ===== ICONS ROW (כמו בדוגמה ובסדר שביקשת) ===== */
     .iconRow{
-      margin-top: 18px;
+      margin-top: 22px;
       display:flex;
       align-items:flex-start;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
       padding: 0 2px;
     }
@@ -184,8 +158,8 @@
       user-select:none;
     }
     .iconCircle{
-      width: 56px;
-      height: 56px;
+      width: 62px;
+      height: 62px;
       border-radius: 999px;
       display:grid;
       place-items:center;
@@ -194,9 +168,9 @@
     }
     .iconCircle svg{ width:22px; height:22px; fill: #fff; }
     .iconLabel{
-      font-size: 13px;
-      font-weight: 800;
-      color: rgba(23,34,48,.75);
+      font-size: 14px;
+      font-weight: 900;
+      color: rgba(23,34,48,.80);
       white-space: nowrap;
     }
     .iconItem:focus-visible{
@@ -205,13 +179,14 @@
       border-radius: 12px;
     }
 
+    /* כפתור שמירה – עם אייקון פלוס */
     .saveBtn{
       margin: 16px auto 0;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap: 10px;
-      padding: 12px 16px;
+      padding: 12px 18px;
       border-radius: 10px;
       border: 0;
       background: var(--gold);
@@ -222,21 +197,20 @@
     }
     .saveBtn svg{ width:18px; height:18px; fill:#fff; }
 
-    /* ===== SECTION TITLES ===== */
+    /* ===== SECTIONS ===== */
     .sectionTitle{
-      margin: 18px auto 10px;
+      margin: 22px auto 10px;
       max-width: var(--phone);
-      font-size: 34px;
+      font-size: 40px;
       font-weight: 950;
       letter-spacing: .2px;
       text-align:center;
     }
 
-    /* ===== WHITE SECTION ===== */
     .whiteSection{
       background: var(--white);
       color: var(--ink);
-      padding: 16px 18px 26px;
+      padding: 18px 18px 26px;
     }
     .whiteInner{
       max-width: var(--phone);
@@ -245,11 +219,12 @@
     .p{
       margin: 0;
       color: var(--mutedDark);
-      line-height: 1.9;
+      line-height: 1.95;
       font-size: 15px;
+      text-align:center;
     }
 
-    /* תחומי התמחות – גריד כמו בדוגמא */
+    /* גריד תחומים – כמו בדוגמה */
     .grid{
       margin-top: 18px;
       display:grid;
@@ -264,7 +239,7 @@
       padding: 10px 6px;
     }
     .feat svg{
-      width: 42px; height: 42px;
+      width: 46px; height: 46px;
       fill: none;
       stroke: rgba(31,45,60,.62);
       stroke-width: 1.6;
@@ -272,32 +247,59 @@
     }
     .feat h3{
       margin: 0;
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 950;
-      color: rgba(15,20,27,.86);
+      color: rgba(15,20,27,.88);
+    }
+    .feat .line{
+      width: 64px;
+      height: 2px;
+      background: rgba(184,148,90,.75);
+      margin: 10px auto 10px;
     }
     .feat p{
-      margin-top: 6px;
-      font-size: 13px;
-      line-height: 1.65;
+      margin:0;
+      font-size: 13.5px;
+      line-height: 1.75;
       color: rgba(15,20,27,.70);
     }
 
-    /* ===== DARK SECTION ===== */
+    /* ===== RECS SECTION (כחול + זהב) ===== */
     .darkSection{
       background: linear-gradient(180deg, var(--navy2), var(--navy3));
-      padding: 18px 18px 10px;
+      padding: 22px 18px 16px;
     }
     .darkInner{
       max-width: var(--phone);
       margin: 0 auto;
     }
 
-    /* ממליצים – “כרטיסים זהב” כמו בדוגמא */
+    .recsLayout{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width:520px){
+      .recsLayout{ grid-template-columns: 1fr; }
+    }
+
+    .recsImg{
+      border-radius: 10px;
+      overflow:hidden;
+      box-shadow: 0 18px 38px rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .recsImg img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+
     .carousel{
-      margin-top: 12px;
       position: relative;
-      padding: 12px 0 8px;
+      padding: 8px 0 8px;
     }
     .slides{
       display:flex;
@@ -307,23 +309,26 @@
       padding: 0 44px; /* מקום לחיצים */
     }
     .slide{
-      min-width: 74%;
+      min-width: 78%;
       background: var(--gold);
       color:#fff;
-      border-radius: 6px;
-      padding: 14px 14px 16px;
+      border-radius: 8px;
+      padding: 16px 16px 16px;
       box-shadow: 0 16px 34px rgba(0,0,0,.22);
+      text-align:right;
     }
     .slide small{
       opacity:.95;
       display:block;
       font-weight: 950;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      text-align:right;
     }
     .slide p{
       margin:0;
-      line-height: 1.75;
+      line-height: 1.8;
       font-size: 14px;
+      text-align:right;
     }
     .carBtn{
       position:absolute;
@@ -344,11 +349,11 @@
     .carBtn.left{ left: 0; }
     .carBtn.right{ right: 0; }
 
-    /* טופס – נקי כמו בדוגמא */
+    /* ===== CONTACT FORM ===== */
     .formTitle{
-      margin: 22px 0 10px;
+      margin: 26px 0 10px;
       text-align:center;
-      font-size: 34px;
+      font-size: 40px;
       font-weight: 950;
       color:#fff;
     }
@@ -379,15 +384,6 @@
       border-color: rgba(184,148,90,.85);
       box-shadow: 0 0 0 3px rgba(184,148,90,.25);
     }
-
-    .consent{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-size: 13px;
-      color: rgba(255,255,255,.88);
-      margin-top: 2px;
-    }
     .send{
       margin-top: 6px;
       width: 100%;
@@ -400,30 +396,7 @@
       cursor:pointer;
     }
 
-    /* שיתוף */
-    .shareTitle{
-      margin: 18px 0 10px;
-      text-align:center;
-      font-size: 30px;
-      font-weight: 950;
-      color:#fff;
-    }
-    .shareRow{
-      display:flex;
-      justify-content:center;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding-bottom: 4px;
-    }
-    .shareCircle{
-      width: 44px; height: 44px;
-      border-radius:999px;
-      background: var(--gold);
-      display:grid;
-      place-items:center;
-    }
-    .shareCircle svg{ width:18px; height:18px; fill:#fff; }
-
+    /* חזרה למעלה */
     .toTop{
       display:flex;
       justify-content:center;
@@ -439,41 +412,31 @@
     }
     .toTop svg{ width:18px; height:18px; fill:#fff; }
 
-    .footer{
+    /* Footer לבן עם טקסט שחור + אייקון וואטסאפ */
+    .bizFooter{
+      background: #fff;
+      color: #111;
+      padding: 16px 18px 20px;
       text-align:center;
-      color: rgba(255,255,255,.75);
-      font-size: 12px;
-      padding: 10px 18px 88px;
+      font-weight: 700;
+      font-size: 14px;
     }
+    .bizFooter a{
+      color:#111;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .bizFooter .wa{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.12);
+      margin-top: 10px;
+    }
+    .bizFooter .wa svg{ width:16px; height:16px; fill:#111; }
 
-    /* כפתורים דביקים בנייד */
-    .sticky{
-      position: fixed;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      max-width: var(--phone);
-      margin: 0 auto;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      z-index: 20;
-    }
-    .sticky a{
-      background: rgba(31,45,60,.86);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(10px);
-      padding: 12px 10px;
-      border-radius: 12px;
-      text-align:center;
-      font-weight: 950;
-      color:#fff;
-    }
-    .sticky a.gold{
-      background: rgba(184,148,90,.92);
-      border-color: rgba(184,148,90,.70);
-    }
-    @media (min-width: 900px){ .sticky{ display:none; } }
   </style>
 </head>
 
@@ -483,30 +446,25 @@
     <!-- HERO -->
     <header class="hero" id="top">
       <div class="heroInner">
-        <div class="brandTop">
-          <div class="brandText">
-            <h1 class="brandNameTop" id="heroName">אלדד אביבי</h1>
-            <div class="brandSubTop" id="heroSub">יזמות ושמאות מקרקעין</div>
-          </div>
-          <div class="monogram" id="heroMono">EA</div>
-        </div>
+        <div class="monogram" aria-hidden="true">EA</div>
       </div>
       <div class="wave" aria-hidden="true"></div>
     </header>
 
-    <!-- PROFILE + ICONS -->
+    <!-- TOP CARD -->
     <section class="cardTop">
       <div class="cardTopInner">
         <div class="avatar">
-          <!-- תמונה ייצוגית ברורה (אפשר להחליף לתמונה שלך) -->
-          <img id="profileImg" alt="תמונה ייצוגית של אלדד אביבי" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80">
+          <!-- אפשר להחליף לתמונה שלך -->
+          <img id="profileImg" alt="אלדד אביבי" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80">
         </div>
 
-        <h2 class="nameMid" id="nameMid">אלדד אביבי</h2>
-        <p class="titleMid" id="titleMid">יזמות • שמאות מקרקעין • ייעוץ עסקאות נדל״ן • ליווי אישי ומקצועי</p>
+        <h1 class="nameMid" id="nameMid">אלדד אביבי</h1>
+        <div class="sloganMid" id="sloganMid">יזמות ושמאות מקרקעין</div>
 
+        <!-- אייקונים לפי הדוגמה -->
         <div class="iconRow" aria-label="קיצורי דרך">
-          <!-- 8 אייקונים כמו בדוגמא -->
+
           <a class="iconItem" href="#contact" aria-label="צור קשר">
             <div class="iconCircle" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M6 6h12v2H6zm0 4h12v2H6zm0 4h8v2H6z"/></svg>
@@ -521,7 +479,7 @@
             <div class="iconLabel">אתר</div>
           </a>
 
-          <a class="iconItem" href="#areas" aria-label="התמחויות">
+          <a class="iconItem" href="#skills" aria-label="התמחויות">
             <div class="iconCircle" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M10 4h4v2h6v4h-2V8h-4v2h-4V8H6v2H4V6h6V4zm-4 8h12v8H6v-8zm2 2v4h8v-4H8z"/></svg>
             </div>
@@ -535,11 +493,12 @@
             <div class="iconLabel">פייסבוק</div>
           </a>
 
-          <a class="iconItem" href="#recs" aria-label="ממליצים">
+          <!-- במקום ממליצים: מייל -->
+          <a class="iconItem" id="mailBtn" href="#" aria-label="מייל">
             <div class="iconCircle" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.7 0 3.2 1 3.9 2.4C11.3 5 12.8 4 14.5 4 17 4 19 6 19 8.5c0 3.78-3.4 6.86-8.55 11.18z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
             </div>
-            <div class="iconLabel">ממליצים</div>
+            <div class="iconLabel">מייל</div>
           </a>
 
           <a class="iconItem" id="mapBtn" href="#" target="_blank" rel="noopener" aria-label="ניווט">
@@ -562,106 +521,98 @@
             </div>
             <div class="iconLabel">וואטסאפ</div>
           </a>
+
         </div>
 
         <button class="saveBtn" id="saveBtn" type="button" aria-label="שמור אותי באנשי הקשר">
-          <svg viewBox="0 0 24 24"><path d="M15 3H5a2 2 0 0 0-2 2v14l3-2 3 2 3-2 3 2V5a2 2 0 0 0-2-2zm4 4h2v14l-3-2-3 2V7z"/></svg>
+          <!-- אייקון פלוס/הוספה -->
+          <svg viewBox="0 0 24 24"><path d="M15 12a4 4 0 10-8 0 4 4 0 008 0zm-4 6c-3.3 0-6 1.7-6 4h12c0-2.3-2.7-4-6-4zM20 10V7h-2V5h-3v2h-2v3h2v2h3v-2h2z"/></svg>
           שמור אותי באנשי הקשר
         </button>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="whiteSection" id="about">
+    <!-- “תחומי עניין” במקום אודות -->
+    <section class="whiteSection" id="skills">
       <div class="whiteInner">
-        <div class="sectionTitle">אודות</div>
+        <div class="sectionTitle">תחומי עניין</div>
         <p class="p">
-          <b>אלדד אביבי – יזמות ושמאות מקרקעין</b> מעניק ללקוחותיו מעטפת מקצועית לעסקאות נדל״ן ולמהלכים בתחום המקרקעין —
-          משלב הבדיקה המקדימה ועד קבלת החלטה בטוחה ומבוססת נתונים.
-          <br><br>
-          אנחנו משלבים בין <b>שמאות</b> (בדיקת שווי, ניתוח תכנוני, הערכת סיכונים) לבין <b>ליווי יזמי</b> (תכנון מהלך, בדיקות כדאיות,
-          ניהול תהליך מול גורמים רלוונטיים), כדי לעזור ללקוחות פרטיים ומשקיעים לקבל החלטות חכמות, עם ביטחון ושקט.
+          יזמות נדל״ן • שמאות מקרקעין • בדיקות כדאיות • ניתוח שוק • תכנון וזכויות בנייה • ליווי משקיעים.
         </p>
-      </div>
-    </section>
 
-    <!-- AREAS -->
-    <section class="whiteSection" id="areas" style="padding-top:0;">
-      <div class="whiteInner">
-        <div class="sectionTitle">תחומי התמחות</div>
-
-        <div class="grid">
+        <div class="grid" style="margin-top:22px;">
           <div class="feat">
-            <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 18l6-12 6 12"/></svg>
-            <h3>הערכת שווי נכסים</h3>
-            <p>דירות, מגרשים ומסחרי — הערכה מקצועית עם ניתוח שוק ותכנון.</p>
+            <svg viewBox="0 0 24 24"><path d="M7 7h10v14H7z"/><path d="M9 3h6v4H9z"/></svg>
+            <h3>דוח שמאי</h3>
+            <div class="line"></div>
+            <p>הערכה מסודרת ושקופה לשווי נכס לפני קנייה/מכירה/מימון.</p>
           </div>
 
           <div class="feat">
-            <svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M6 7v14h12V7"/><path d="M9 11h6"/><path d="M9 15h6"/></svg>
-            <h3>דוחות שמאות</h3>
-            <p>דו״ח שמאי מסודר לצורך קנייה/מכירה, מימון או קבלת החלטה.</p>
-          </div>
-
-          <div class="feat">
-            <svg viewBox="0 0 24 24"><path d="M6 19h12"/><path d="M7 7h10"/><path d="M8 7V5h8v2"/><path d="M9 19V7"/><path d="M15 19V7"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 17l6-10 6 10"/></svg>
             <h3>בדיקת כדאיות</h3>
-            <p>בחינת רווחיות לפרויקטים, תרחישים וסיכונים לפני שמתקדמים.</p>
+            <div class="line"></div>
+            <p>בחינת רווחיות, תרחישים וסיכונים לפני שמתקדמים לעסקה.</p>
+          </div>
+
+          <div class="feat">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 7h10"/><path d="M7 17h10"/></svg>
+            <h3>זכויות ותכנון</h3>
+            <div class="line"></div>
+            <p>בדיקות תכנוניות (תב״ע/מגבלות) כדי להבין מה באמת אפשר לעשות.</p>
           </div>
 
           <div class="feat">
             <svg viewBox="0 0 24 24"><path d="M3 12h18"/><path d="M7 12l4-4"/><path d="M7 12l4 4"/></svg>
             <h3>ליווי משקיעים</h3>
-            <p>איתור הזדמנויות, ניתוח, ושיתוף פעולה להחלטות מבוססות.</p>
-          </div>
-
-          <div class="feat">
-            <svg viewBox="0 0 24 24"><path d="M6 21V7"/><path d="M18 21V7"/><path d="M4 7h16"/><path d="M8 7V4h8v3"/></svg>
-            <h3>ייעוץ תכנוני</h3>
-            <p>בדיקות תב״ע/זכויות, מגבלות, ומה אפשר באמת לעשות בנכס.</p>
-          </div>
-
-          <div class="feat">
-            <svg viewBox="0 0 24 24"><path d="M5 20h14"/><path d="M7 17l5-10 5 10"/><path d="M12 7V4"/></svg>
-            <h3>ליווי יזמי</h3>
-            <p>תכנון מהלך, סדר פעולות, וניהול תהליך בצורה פרקטית.</p>
+            <div class="line"></div>
+            <p>הכוונה בתהליך, ניתוח שוק וסינון עסקאות עד לבחירה נכונה.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RECS + CONTACT -->
+    <!-- ממליצים (עם תמונה + יותר המלצות) -->
     <section class="darkSection" id="recs">
       <div class="darkInner">
         <div class="sectionTitle" style="color:#fff;">ממליצים</div>
 
-        <div class="carousel" aria-label="קרוסלת המלצות">
-          <button class="carBtn left" type="button" aria-label="הקודם" onclick="scrollSlides(-1)">
-            <svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
-          </button>
-
-          <div class="slides" id="slides">
-            <div class="slide">
-              <small>יובל • משקיע</small>
-              <p>“קיבלתי ניתוח שוק ותכנון מדויק לפני העסקה. זה חסך לי טעויות ועזר לי להתקדם עם ביטחון.”</p>
-            </div>
-            <div class="slide">
-              <small>ענבר • לקוחה פרטית</small>
-              <p>“הסבירו לי הכל בצורה ברורה, עם מספרים והיגיון. תחושה של מקצוענות ושקט לאורך התהליך.”</p>
-            </div>
-            <div class="slide">
-              <small>עדי • יזם</small>
-              <p>“בדיקת כדאיות מדויקת + מסלול עבודה מסודר. ממליץ למי שרוצה תהליך נקי ומקצועי.”</p>
-            </div>
+        <div class="recsLayout">
+          <div class="recsImg">
+            <img alt="לקוחות מרוצים" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80">
           </div>
 
-          <button class="carBtn right" type="button" aria-label="הבא" onclick="scrollSlides(1)">
-            <svg viewBox="0 0 24 24"><path d="m8.6 16.6 1.4 1.4 6-6-6-6-1.4 1.4L13.2 12z"/></svg>
-          </button>
+          <div class="carousel" aria-label="קרוסלת המלצות">
+            <button class="carBtn left" type="button" aria-label="הקודם" onclick="scrollSlides(-1)">
+              <svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+            </button>
+
+            <div class="slides" id="slides">
+              <div class="slide">
+                <small>יובל • משקיע</small>
+                <p>קיבלתי בדיקה יסודית וחדה לפני עסקה. הכל הוסבר ברור עם מספרים ותובנות.</p>
+              </div>
+              <div class="slide">
+                <small>שירי • לקוחה פרטית</small>
+                <p>ליווי מקצועי וסבלני, הרגשתי שיש לי “מצפן” לאורך כל התהליך.</p>
+              </div>
+              <div class="slide">
+                <small>ניר • יזם</small>
+                <p>בדיקת כדאיות מדויקת שחסכה זמן וכסף. שירות ברמה גבוהה מאוד.</p>
+              </div>
+              <div class="slide">
+                <small>עדי • רוכש דירה</small>
+                <p>עזר לי להבין את השווי האמיתי והסיכונים. החלטה הרבה יותר בטוחה.</p>
+              </div>
+            </div>
+
+            <button class="carBtn right" type="button" aria-label="הבא" onclick="scrollSlides(1)">
+              <svg viewBox="0 0 24 24"><path d="m8.6 16.6 1.4 1.4 6-6-6-6-1.4 1.4L13.2 12z"/></svg>
+            </button>
+          </div>
         </div>
 
         <div class="formTitle" id="contact">צור קשר</div>
-
         <form class="form" onsubmit="return sendToWhatsApp(event)">
           <div class="row2">
             <input id="fullName" required placeholder="שם מלא" aria-label="שם מלא">
@@ -669,127 +620,80 @@
           </div>
           <input id="email" placeholder="מייל" aria-label="מייל">
           <textarea id="msg" placeholder="הודעה" aria-label="הודעה"></textarea>
-
-          <label class="consent">
-            <input id="consent" type="checkbox" required>
-            אני מאשר/ת יצירת קשר
-          </label>
-
           <button class="send" type="submit">שלח</button>
         </form>
-
-        <div class="shareTitle">שיתוף כרטיס הביקור</div>
-        <div class="shareRow" aria-label="שיתוף">
-          <a class="shareCircle" id="shareMail" href="#" aria-label="מייל">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
-          </a>
-          <a class="shareCircle" id="shareWA" href="#" target="_blank" rel="noopener" aria-label="וואטסאפ">
-            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2z"/></svg>
-          </a>
-          <a class="shareCircle" id="shareFB" href="#" target="_blank" rel="noopener" aria-label="פייסבוק">
-            <svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3H13.5V9c0-.9.3-1.5 1.6-1.5h1.7V4.8c-.3 0-1.4-.1-2.7-.1-2.6 0-4.4 1.6-4.4 4.6v1.7H7v3h2.7v8h3.8z"/></svg>
-          </a>
-        </div>
 
         <div class="toTop">
           <a href="#top" aria-label="חזרה למעלה">
             <svg viewBox="0 0 24 24"><path d="m12 8 6 6-1.4 1.4L12 10.8 7.4 15.4 6 14z"/></svg>
           </a>
         </div>
-
-        <div class="footer">אלדד אביבי • יזמות ושמאות מקרקעין</div>
       </div>
     </section>
 
-    <!-- Sticky -->
-    <div class="sticky" aria-label="כפתורים מהירים">
-      <a class="gold" id="stickyWA" href="#" target="_blank" rel="noopener">וואטסאפ</a>
-      <a id="stickyCall" href="#">טלפון</a>
-    </div>
+    <!-- פס תחתון לבן -->
+    <footer class="bizFooter">
+      כרטיס זה נוצר על ידי BizCard Pro - 050-4434981
+      <div>
+        <a class="wa" id="bizWa" href="#" target="_blank" rel="noopener" aria-label="וואטסאפ BizCard Pro">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2zm5.7 14.3c-.2.6-1.1 1.1-1.6 1.2-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.2-5-4.4-.2-.2-1.2-1.6-1.2-3s.7-2.1.9-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5.2.6.8 2.1.9 2.3.1.2.1.4 0 .6-.1.2-.2.4-.3.5-.2.2-.3.3-.4.5-.1.2-.2.4 0 .7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.4 1.4 2.8 1.6.3.1.6.1.8-.1.2-.2.9-1.1 1.1-1.4.2-.3.4-.3.7-.2.3.1 2.1 1 2.5 1.2.4.2.6.3.7.5.1.2.1.7-.1 1.3z"/></svg>
+          וואטסאפ
+        </a>
+      </div>
+    </footer>
 
   </div>
 
   <script>
-    // ========= CAROUSEL =========
+    // ===== Carousel =====
     function scrollSlides(dir){
       const el = document.getElementById('slides');
       const amount = el.clientWidth * 0.78 * dir;
-      // ב-RTL דפדפנים מתנהגים שונה, אבל זה עובד טוב עם מינוס:
       el.scrollBy({ left: -amount, behavior: 'smooth' });
     }
 
-    // ========= CONFIG =========
+    // ===== CONFIG =====
     const CONFIG = {
       fullName: "אלדד אביבי",
-      subTitle: "יזמות ושמאות מקרקעין",
-      monogram: "EA",
-
+      slogan: "יזמות ושמאות מקרקעין",
       phoneDisplay: "0504434981",
-
-      // וואטסאפ תקין לישראל: 972 + בלי 0 בתחילת המספר
+      // מספר וואטסאפ נכון: 972 + בלי 0
       whatsappE164: "972504434981",
-
       email: "eldad.avivi@example.com",
-
-      // תשני אם יש לך אמיתי:
       site: "https://example.com",
       facebook: "https://facebook.com/",
       maps: "https://maps.google.com/?q=תל+אביב"
     };
 
-    // ===== Apply top texts =====
-    document.getElementById('heroName').textContent = CONFIG.fullName;
-    document.getElementById('heroSub').textContent = CONFIG.subTitle;
-    document.getElementById('heroMono').textContent = CONFIG.monogram;
+    // Apply text
     document.getElementById('nameMid').textContent = CONFIG.fullName;
-    document.getElementById('titleMid').textContent =
-      "יזמות • שמאות מקרקעין • ייעוץ עסקאות נדל״ן • ליווי אישי ומקצועי";
+    document.getElementById('sloganMid').textContent = CONFIG.slogan;
 
-    // ===== Links =====
+    // Links
     const tel = "tel:" + CONFIG.phoneDisplay.replace(/\D/g,'');
+    const mail = "mailto:" + CONFIG.email;
 
-    // וואטסאפ: 2 פורמטים (wa.me + api.whatsapp) כדי למנוע “לא נמצא”
-    function waLink(text){
-      const t = encodeURIComponent(text);
-      // ה-Primary:
-      const primary = `https://wa.me/${CONFIG.whatsappE164}?text=${t}`;
-      // fallback:
-      const fallback = `https://api.whatsapp.com/send?phone=${CONFIG.whatsappE164}&text=${t}`;
-      return { primary, fallback };
+    function wa(text){
+      return `https://wa.me/${CONFIG.whatsappE164}?text=${encodeURIComponent(text)}`;
     }
 
-    const quickText = `היי ${CONFIG.fullName}, אשמח לייעוץ / פרטים.`;
-    const wa = waLink(quickText);
-
-    // set
+    const waQuick = wa(`היי ${CONFIG.fullName}, אשמח לפרטים / ייעוץ.`);
     document.getElementById('callBtn').href = tel;
-    document.getElementById('stickyCall').href = tel;
-
-    // נשתמש ב-wa.me, ואם למישהו זה נחסם – ניתן fallback דרך onclick
-    const waBtn = document.getElementById('waBtn');
-    waBtn.href = wa.primary;
-    waBtn.addEventListener('click', (e)=>{
-      // אם משהו משתבש (חסימה/אפליקציה), פותחים fallback אחרי רגע
-      setTimeout(()=>{ /* לא חוסם */ }, 0);
-    });
-
-    document.getElementById('stickyWA').href = wa.primary;
-
-    document.getElementById('shareWA').href = waLink(`כרטיס ביקור: ${location.href}`).primary;
-
-    document.getElementById('shareMail').href = "mailto:" + CONFIG.email;
-    document.getElementById('shareFB').href = CONFIG.facebook;
-
+    document.getElementById('waBtn').href = waQuick;
+    document.getElementById('mailBtn').href = mail;
+    document.getElementById('siteBtn').href = CONFIG.site;
     document.getElementById('facebookBtn').href = CONFIG.facebook;
     document.getElementById('mapBtn').href = CONFIG.maps;
-    document.getElementById('siteBtn').href = CONFIG.site;
 
-    // ========= Save contact (vCard) =========
+    // Footer WA (BizCard Pro) — לפי המספר שביקשת
+    document.getElementById('bizWa').href = wa("היי, אשמח לפרטים על BizCard Pro.");
+
+    // Save contact (vCard) עם כפתור פלוס
     function buildVCard(){
       return `BEGIN:VCARD
 VERSION:3.0
 FN:${CONFIG.fullName}
-TITLE:${CONFIG.subTitle}
+TITLE:${CONFIG.slogan}
 TEL;TYPE=CELL:${CONFIG.phoneDisplay}
 EMAIL;TYPE=INTERNET:${CONFIG.email}
 URL:${CONFIG.site}
@@ -809,7 +713,7 @@ END:VCARD`;
       URL.revokeObjectURL(url);
     });
 
-    // ========= Form -> WhatsApp =========
+    // Form -> WhatsApp
     function sendToWhatsApp(e){
       e.preventDefault();
       const name = document.getElementById('fullName').value.trim();
@@ -824,9 +728,7 @@ END:VCARD`;
 מייל: ${email || '-'}
 הודעה: ${msg || '-'}`;
 
-      const link = waLink(text);
-      // פותחים primary. אם לא עובד אצל מישהו, אפשר להדביק את ה-fallback.
-      window.open(link.primary, "_blank");
+      window.open(wa(text), "_blank");
       return false;
     }
   </script>
