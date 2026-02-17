@@ -1,233 +1,288 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>אלדד אביבי | יזמות ושמאות מקרקעין</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+  <title>אלדד אביבי | יזמות ושמאות מקרקעין</title>
+  
+  <style>
+    :root {
+      --gold: #b8945a; /* זהב חרדל מהתמונות */
+      --navy: #1a2633; /* כחול כהה יוקרתי */
+      --white: #ffffff;
+      --bg-light: #f9f9f9;
+      --text-dark: #333333;
+    }
 
-<style>
-:root{
---navy:#26384a;
---navy2:#1f2d3c;
---navy3:#1a2633;
---gold:#b8945a;
---white:#ffffff;
---contactBlue:#2f4056;
-}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background-color: #f0f0f0;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:linear-gradient(180deg,var(--navy2),var(--navy3));
-color:#fff;
-overflow-x:hidden;
-}
+    .card-container {
+      max-width: 450px;
+      margin: 0 auto;
+      background: var(--white);
+      min-height: 100vh;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
 
-.hero{
-background:linear-gradient(rgba(47,64,86,.85),rgba(47,64,86,.95)),
-url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80");
-background-size:cover;
-padding:40px 20px 100px;
-text-align:center;
-}
+    /* Hero & Image - Caribbean Style */
+    .hero-section {
+      background: var(--navy);
+      height: 220px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      clip-path: ellipse(120% 100% at 50% 0%); /* קימור עדין מלמטה */
+    }
 
-.monogram{
-font-size:100px;
-color:rgba(255,255,255,.15);
-margin:0;
-}
+    .profile-wrap {
+      position: absolute;
+      bottom: -60px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 6px solid var(--white);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
 
-.card{
-background:#fff;
-color:#111;
-margin-top:-80px;
-border-radius:20px 20px 0 0;
-padding:20px;
-text-align:center;
-}
+    .profile-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.avatar{
-width:170px;
-height:170px;
-border-radius:50%;
-overflow:hidden;
-margin:-110px auto 15px;
-border:8px solid #fff;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
+    /* Name & Title */
+    .intro {
+      margin-top: 75px;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-.avatar img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
+    .intro h1 {
+      font-size: 30px;
+      margin: 0;
+      color: var(--navy);
+      font-weight: 900;
+    }
 
-.name{
-font-size:32px;
-font-weight:bold;
-margin:5px 0;
-}
+    .intro p {
+      font-size: 18px;
+      color: var(--gold);
+      margin: 5px 0 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-.slogan{
-color:var(--gold);
-font-size:18px;
-margin-bottom:20px;
-}
+    /* Grid Icons (6 Icons) */
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px 30px;
+    }
 
-.icons{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-bottom:20px;
-}
+    .icon-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-.icon{
-text-align:center;
-}
+    .circle {
+      width: 65px;
+      height: 65px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+      transition: transform 0.2s;
+    }
 
-.circle{
-width:60px;
-height:60px;
-border-radius:50%;
-background:var(--gold);
-display:flex;
-align-items:center;
-justify-content:center;
-margin:0 auto 5px;
-}
+    .circle svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
 
-.circle svg{
-fill:#fff;
-width:24px;
-height:24px;
-}
+    .icon-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
 
-.section{
-padding:30px 20px;
-text-align:center;
-}
+    /* Save Contact Button */
+    .btn-save {
+      background: var(--gold);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 16px;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 5px 15px rgba(184, 148, 90, 0.4);
+    }
 
-.white{
-background:#fff;
-color:#111;
-}
+    /* About Section */
+    .about {
+      padding: 30px 25px;
+      background: var(--bg-light);
+      text-align: right;
+      line-height: 1.8;
+      border-top: 1px solid #eee;
+    }
 
-.section h2{
-margin-top:0;
-}
+    .about h2 {
+      text-align: center;
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 20px;
+      position: relative;
+    }
 
-.contact-box{
-background:var(--contactBlue);
-padding:20px;
-border-radius:10px;
-}
+    .about h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 8px auto;
+    }
 
-input,textarea{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border:none;
-border-radius:5px;
-}
+    /* Contact Form - Dark Blue */
+    .contact-area {
+      background: var(--navy);
+      padding: 40px 25px;
+      color: white;
+    }
 
-button{
-background:var(--gold);
-color:#fff;
-border:none;
-padding:12px;
-width:100%;
-border-radius:5px;
-font-weight:bold;
-cursor:pointer;
-}
-</style>
+    .contact-area h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    .input-group { margin-bottom: 15px; }
+    .input-group input, .input-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      font-size: 14px;
+      background: #fff;
+      color: #777;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="hero">
-<h1 class="monogram">EA</h1>
-</div>
+<div class="card-container">
+  
+  <div class="hero-section">
+    <div class="profile-wrap">
+      <img src="https://i.ibb.co/LzN2FRP/ChatGPT-Image-Feb-17-2026-01-40-54-PM.png" alt="אלדד אביבי">
+    </div>
+  </div>
 
-<div class="card">
+  <div class="intro">
+    <h1>אלדד אביבי</h1>
+    <p>יזמות ושמאות מקרקעין</p>
+  </div>
 
-<div class="avatar">
-<img src="https://i.imgur.com/9Xn4YkC.png" alt="אלדד אביבי">
-</div>
+  <div class="icons-grid">
+    <div class="icon-box">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.6 3.9 5.1 6.5 6.5l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.7 0 1.2.5 1.2 1.2V21c0 .7-.5 1.2-1.2 1.2C10.1 22.2 1.8 13.9 1.8 3.6 1.8 2.9 2.3 2.4 3 2.4H6.8c.7 0 1.2.5 1.2 1.2 0 1.4.3 2.8.8 4.1.1.4 0 .9-.2 1.2l-2 1.9z"/></svg></div>
+      <div class="icon-label">טלפון</div>
+    </div>
+    <div class="icon-box">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2zm5.7 14.3c-.2.6-1.1 1.1-1.6 1.2-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.2-5-4.4-.2-.2-1.2-1.6-1.2-3s.7-2.1.9-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5.2.6.8 2.1.9 2.3.1.2.1.4 0 .6-.1.2-.2.4-.3.5-.2.2-.3.3-.4.5-.1.2-.2.4 0 .7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.4 1.4 2.8 1.6.3.1.6.1.8-.1.2-.2.9-1.1 1.1-1.4.2-.3.4-.3.7-.2.3.1 2.1 1 2.5 1.2.4.2.6.3.7.5.1.2.1.7-.1 1.3z"/></svg></div>
+      <div class="icon-label">וואטסאפ</div>
+    </div>
+    <div class="icon-box">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.7 9H15a15.2 15.2 0 00-1.3-6 8.1 8.1 0 015.9 6zM12 4.3c.9 1.3 1.6 3.6 1.9 6.7h-3.8c.3-3.1 1-5.4 1.9-6.7zM4.4 13H9c.2 2.4.7 4.5 1.3 6a8 8 0 01-5.9-6zm0-2a8 8 0 015.9-6A15.2 15.2 0 009 11H4.4zm7.6 8.7c-.9-1.3-1.6-3.6-1.9-6.7h3.8c-.3 3.1-1 5.4-1.9 6.7zM15 13h4.7a8.1 8.1 0 01-5.9 6c.6-1.5 1.1-3.6 1.2-6z"/></svg></div>
+      <div class="icon-label">אתר</div>
+    </div>
+    <div class="icon-box">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg></div>
+      <div class="icon-label">ניווט</div>
+    </div>
+    <div class="icon-box">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg></div>
+      <div class="icon-label">מייל</div>
+    </div>
+    <div class="icon-box">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3H13.5V9c0-.9.3-1.5 1.6-1.5h1.7V4.8c-.3 0-1.4-.1-2.7-.1-2.6 0-4.4 1.6-4.4 4.6v1.7H7v3h2.7v8h3.8z"/></svg></div>
+      <div class="icon-label">פייסבוק</div>
+    </div>
+  </div>
 
-<div class="name">אלדד אביבי</div>
-<div class="slogan">יזמות ושמאות מקרקעין</div>
+  <button class="btn-save">
+    <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+    שמור איש קשר
+  </button>
 
-<div class="icons">
+  <div class="about">
+    <h2>תחומי התמחות</h2>
+    <p>
+      יזמות ושמאות מקרקעין מספק שירותי הערכת שווי לנכסים מגורים, מסחריים, תעשייתיים וחקלאיים. אנו מציעים הערכות מדויקות לצרכים כגון מכירה, רכישה, ביטוח, חלוקת נכסים בירושה, גירושין ופירוק שותפים. כמו כן, אנו מתמחים בהפחתת תשלומים מול רמ"י ובהפחתת היטלי השבחה מול ועדות מקומיות.
+      <br><br>
+      בנוסף, אנו מבצעים בדיקות כדאיות לפרויקטים בתחום הנדל"ן ומציעים ייעוץ מקצועי מותאם אישית. 
+      <br><br>
+      אנו פועלים לפי התקינה השמאית והקווים המנחים של משרד המשפטים וחברי לשכת השמאים. אנו מאמינים במתן שירות אישי ואיכותי לכל לקוח.
+    </p>
+  </div>
 
-<div class="icon">
-<div class="circle">
-<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
-</div>
-אתר
-</div>
+  <div class="contact-area">
+    <h2>צרו קשר</h2>
+    <form>
+      <div class="input-group"><input type="text" placeholder="שם מלא"></div>
+      <div class="input-group"><input type="tel" placeholder="טלפון"></div>
+      <div class="input-group"><textarea placeholder="הודעה" rows="4"></textarea></div>
+      <button type="button" class="submit-btn">שליחת הודעה</button>
+    </form>
+  </div>
 
-<div class="icon">
-<div class="circle">
-<svg viewBox="0 0 24 24"><path d="M6 2h12v20H6z"/></svg>
-</div>
-התמחויות
-</div>
+  <footer>
+    <p>כרטיס ביקור דיגיטלי | אלדד אביבי</p>
+    <p>נוצר על ידי BizCard Pro</p>
+  </footer>
 
-<div class="icon">
-<div class="circle">
-<svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11 9.9v-7h-2v-3h2v-2c0-2 1.2-3 3-3h2v3h-1c-1 0-1 .5-1 1v1h2l-.3 3h-1.7v7A10 10 0 0022 12z"/></svg>
-</div>
-פייסבוק
-</div>
-
-<div class="icon">
-<div class="circle">
-<svg viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-4-8-8-8z"/></svg>
-</div>
-ניווט
-</div>
-
-<div class="icon">
-<div class="circle">
-<svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.6 3.9 5.1 6.5 6.5"/></svg>
-</div>
-טלפון
-</div>
-
-<div class="icon">
-<div class="circle">
-<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8 14l-2 6 6-2a10 10 0 108-18z"/></svg>
-</div>
-וואטסאפ
-</div>
-
-</div>
-</div>
-
-<div class="section white">
-<h2>תחומי התמחות</h2>
-<p>
-יזמות ושמאות מקרקעין מספק שירותי הערכת שווי לנכסים מגורים, מסחריים, תעשייתיים וחקלאיים.  
-אנו מציעים הערכות מדויקות לצרכים כגון מכירה, רכישה, ביטוח, חלוקת נכסים בירושה, גירושין ופירוק שותפים.  
-כמו כן, אנו מתמחים בהפחתת תשלומים מול רמ"י ובהפחתת היטלי השבחה מול ועדות מקומיות.
-<br><br>
-בנוסף, אנו מבצעים בדיקות כדאיות לפרויקטים בתחום הנדל"ן ומציעים ייעוץ מקצועי מותאם אישית.
-<br><br>
-אנו פועלים לפי התקינה השמאית והקווים המנחים של משרד המשפטים וחברי לשכת השמאים.
-</p>
-</div>
-
-<div class="section">
-<h2>צור קשר</h2>
-<div class="contact-box">
-<input placeholder="שם מלא">
-<input placeholder="טלפון">
-<input placeholder="מייל">
-<textarea placeholder="הודעה"></textarea>
-<button>שלח</button>
-</div>
 </div>
 
 </body>
